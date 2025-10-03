@@ -23,7 +23,7 @@ A modern, responsive React + TypeScript frontend for the GoInvoice application. 
 
 ## Tech Stack
 
-- **Framework**: React 18 with TypeScript
+- **Framework**: React 19 with TypeScript
 - **Build Tool**: Vite
 - **Styling**: Tailwind CSS
 - **Routing**: React Router DOM
@@ -52,8 +52,6 @@ A modern, responsive React + TypeScript frontend for the GoInvoice application. 
    ```bash
    npm run dev
    ```
-
-The application will be available at `http://localhost:5173/`
 
 ## Project Structure
 
@@ -92,3 +90,5 @@ npm run build        # Build for production
 npm run preview      # Preview production build
 npm run lint         # Run ESLint
 ```
+
+Try the application [here](https://go-invoice-frontend-470727012795.asia-southeast1.run.app/)
