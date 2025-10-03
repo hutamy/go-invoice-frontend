@@ -21,6 +21,7 @@ const HomePage: React.FC = () => {
       .toISOString()
       .split("T")[0],
     tax_rate: 0,
+    delivery_fee: 0,
     notes: "",
     // Sender details for non-authenticated users
     sender_name: "",
@@ -165,6 +166,7 @@ const HomePage: React.FC = () => {
                           .toISOString()
                           .split("T")[0],
                         tax_rate: 10,
+                        delivery_fee: 0,
                         notes: "Thank you for your business!",
                         sender_name: "Your Company",
                         sender_email: "hello@yourcompany.com",
