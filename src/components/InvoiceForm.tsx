@@ -44,7 +44,10 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
 
   const loadClients = useCallback(async () => {
     if (isAuthenticated && showClientSelection) {
-      const clientsData = await apiService.getClients({ page: 1, page_size: 25 });
+      const clientsData = await apiService.getClients({
+        page: 1,
+        page_size: 25,
+      });
       setClients(clientsData.data);
     }
   }, [isAuthenticated, showClientSelection]);
@@ -150,8 +153,9 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
       {/* Invoice Details */}
       <div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-200/50">
         <h3
-          className={`text-lg font-medium flex items-center justify-between cursor-pointer text-accent-600 transition-colors select-none ${expandedSections.invoiceDetails ? "mb-8" : ""
-            }`}
+          className={`text-lg font-medium flex items-center justify-between cursor-pointer text-accent-600 transition-colors select-none ${
+            expandedSections.invoiceDetails ? "mb-8" : ""
+          }`}
           onClick={() => toggleSection("invoiceDetails")}
         >
           <div className="flex items-center">Invoice Details</div>
@@ -232,8 +236,9 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
       {/* Sender Details (Business Information) */}
       <div className="bg-blue-600/3 p-8 rounded-2xl border border-blue-200/30">
         <h3
-          className={`text-lg font-medium flex items-center justify-between cursor-pointer text-accent-600 transition-colors select-none ${expandedSections.senderDetails ? "mb-6" : ""
-            }`}
+          className={`text-lg font-medium flex items-center justify-between cursor-pointer text-accent-600 transition-colors select-none ${
+            expandedSections.senderDetails ? "mb-6" : ""
+          }`}
           onClick={() => toggleSection("senderDetails")}
         >
           <div className="flex items-center">Sender Details</div>
@@ -398,8 +403,9 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
       {isAuthenticated && showClientSelection && (
         <div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-200/50">
           <h3
-            className={`text-lg font-medium flex items-center justify-between cursor-pointer text-accent-600 transition-colors select-none ${expandedSections.clientSelection ? "mb-4" : ""
-              }`}
+            className={`text-lg font-medium flex items-center justify-between cursor-pointer text-accent-600 transition-colors select-none ${
+              expandedSections.clientSelection ? "mb-4" : ""
+            }`}
             onClick={() => toggleSection("clientSelection")}
           >
             <span>Select Existing Client (optional)</span>
@@ -426,7 +432,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
                     >
                       {selectedClientId
                         ? clients.find((c) => c.id === selectedClientId)
-                          ?.name || "Enter client details manually"
+                            ?.name || "Enter client details manually"
                         : "Enter client details manually"}
                     </span>
                     <ChevronDown className="h-5 w-5 text-primary-400 transition-transform duration-200 ui-open:rotate-180" />
@@ -442,9 +448,10 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
                       <Listbox.Option
                         value=""
                         className={({ active }) =>
-                          `relative cursor-pointer select-none py-3 px-4 transition-colors first:rounded-t-2xl border-b border-primary-100/50 ${active
-                            ? "bg-sky-50/80 text-sky-900"
-                            : "text-primary-600"
+                          `relative cursor-pointer select-none py-3 px-4 transition-colors first:rounded-t-2xl border-b border-primary-100/50 ${
+                            active
+                              ? "bg-sky-50/80 text-sky-900"
+                              : "text-primary-600"
                           }`
                         }
                       >
@@ -455,10 +462,12 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
                           key={client.id}
                           value={client.id.toString()}
                           className={({ active, selected }) =>
-                            `relative cursor-pointer select-none py-3 px-4 transition-colors border-b border-primary-100/50 last:border-b-0 last:rounded-b-2xl ${active ? "bg-sky-50/80" : ""
-                            } ${selected
-                              ? "bg-sky-100/60 text-sky-800 font-medium"
-                              : "text-primary-700"
+                            `relative cursor-pointer select-none py-3 px-4 transition-colors border-b border-primary-100/50 last:border-b-0 last:rounded-b-2xl ${
+                              active ? "bg-sky-50/80" : ""
+                            } ${
+                              selected
+                                ? "bg-sky-100/60 text-sky-800 font-medium"
+                                : "text-primary-700"
                             }`
                           }
                         >
@@ -518,10 +527,11 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
                   handleInputChange("client_name", e.target.value)
                 }
                 disabled={selectedClientId !== null}
-                className={`w-full px-4 py-3 border border-primary-200 rounded-full focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all duration-200 placeholder-primary-400 text-primary-900 shadow-sm ${selectedClientId !== null
+                className={`w-full px-4 py-3 border border-primary-200 rounded-full focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all duration-200 placeholder-primary-400 text-primary-900 shadow-sm ${
+                  selectedClientId !== null
                     ? "bg-gray-100 text-gray-500 cursor-not-allowed"
                     : "bg-white/80"
-                  }`}
+                }`}
                 placeholder="Client Name"
                 required
               />
@@ -537,10 +547,11 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
                   handleInputChange("client_email", e.target.value)
                 }
                 disabled={selectedClientId !== null}
-                className={`w-full px-4 py-3 border border-primary-200 rounded-full focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all duration-200 placeholder-primary-400 text-primary-900 shadow-sm ${selectedClientId !== null
+                className={`w-full px-4 py-3 border border-primary-200 rounded-full focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all duration-200 placeholder-primary-400 text-primary-900 shadow-sm ${
+                  selectedClientId !== null
                     ? "bg-gray-100 text-gray-500 cursor-not-allowed"
                     : "bg-white/80"
-                  }`}
+                }`}
                 placeholder="client@example.com"
               />
             </div>
@@ -555,10 +566,11 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
                   handleInputChange("client_phone", e.target.value)
                 }
                 disabled={selectedClientId !== null}
-                className={`w-full px-4 py-3 border border-primary-200 rounded-full focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all duration-200 placeholder-primary-400 text-primary-900 shadow-sm ${selectedClientId !== null
+                className={`w-full px-4 py-3 border border-primary-200 rounded-full focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all duration-200 placeholder-primary-400 text-primary-900 shadow-sm ${
+                  selectedClientId !== null
                     ? "bg-gray-100 text-gray-500 cursor-not-allowed"
                     : "bg-white/80"
-                  }`}
+                }`}
                 placeholder="+1 234 567 890"
               />
             </div>
@@ -572,10 +584,11 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
                   handleInputChange("client_address", e.target.value)
                 }
                 disabled={selectedClientId !== null}
-                className={`w-full px-4 py-3 border border-primary-200 rounded-2xl focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all duration-200 placeholder-primary-400 text-primary-900 shadow-sm resize-none ${selectedClientId !== null
+                className={`w-full px-4 py-3 border border-primary-200 rounded-2xl focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all duration-200 placeholder-primary-400 text-primary-900 shadow-sm resize-none ${
+                  selectedClientId !== null
                     ? "bg-gray-100 text-gray-500 cursor-not-allowed"
                     : "bg-white/80"
-                  }`}
+                }`}
                 rows={3}
                 placeholder="123 Client Street, Client City, Country"
               />
@@ -747,7 +760,10 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
                 min="0"
                 value={data.delivery_fee}
                 onChange={(e) =>
-                  handleInputChange("delivery_fee", parseFloat(e.target.value) || 0)
+                  handleInputChange(
+                    "delivery_fee",
+                    parseFloat(e.target.value) || 0
+                  )
                 }
                 className="w-full px-4 py-3 bg-white/80 border border-primary-200 rounded-full focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all duration-200 placeholder-primary-400 text-primary-900 shadow-sm"
                 placeholder="0.00"
@@ -790,7 +806,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
             <div className="flex justify-between items-center py-3 border-b border-blue-200/50">
               <span className="text-gray-600 font-medium">Subtotal:</span>
               <span className="text-lg font-medium text-gray-900">
-                IDR {subtotal.toFixed(2)}
+                IDR {subtotal.toLocaleString()}
               </span>
             </div>
             <div className="flex justify-between items-center py-3 border-b border-blue-200/50">
@@ -798,21 +814,19 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
                 Tax ({data.tax_rate}%):
               </span>
               <span className="text-lg font-medium text-gray-900">
-                IDR {taxAmount.toFixed(2)}
+                IDR {taxAmount.toLocaleString()}
               </span>
             </div>
             <div className="flex justify-between items-center py-3 border-b border-blue-200/50">
-              <span className="text-gray-600 font-medium">
-                Delivery Fee:
-              </span>
+              <span className="text-gray-600 font-medium">Delivery Fee:</span>
               <span className="text-lg font-medium text-gray-900">
-                IDR {data.delivery_fee.toFixed(2)}
+                IDR {data.delivery_fee.toLocaleString()}
               </span>
             </div>
             <div className="flex justify-between items-center py-4 bg-white rounded-2xl px-6">
               <span className="text-xl font-medium text-gray-900">Total:</span>
               <span className="text-2xl font-medium text-accent-600">
-                IDR {total.toFixed(2)}
+                IDR {total.toLocaleString()}
               </span>
             </div>
           </div>
