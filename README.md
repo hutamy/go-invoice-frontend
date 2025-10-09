@@ -91,4 +91,4 @@ npm run preview      # Preview production build
 npm run lint         # Run ESLint
 ```
 
-Try the application [here](https://go-invoice-frontend-470727012795.asia-southeast1.run.app/)
+Try the application [here](https://go-invoice-frontend-58444507601.asia-southeast1.run.app)
